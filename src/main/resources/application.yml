@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: firstservice
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/firstservice/**
+      - id: secondservice
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/secondservice/**
+      - id: thirdservice
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/thirdservice/**
+        
+        
